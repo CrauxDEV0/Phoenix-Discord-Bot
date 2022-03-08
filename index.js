@@ -1,7 +1,7 @@
-
 const {Collection, Client, Discord} = require('discord.js')
 const fs = require('fs');
 const mongo = require("./mongo.js")
+const chalk = require("chalk")
 const client = new Client({
     intents: [
         "GUILDS",
@@ -23,7 +23,7 @@ const client = new Client({
 
 module.exports = client;
 
-const mongoose = require('mongoose');
+
 
       
 client.commands = new Collection();
@@ -43,20 +43,9 @@ app.listen(3000)
 console.log("Bot is Online 24/7")
 
 
-client.once('ready',() => {
-    client.user.setActivity('%help')
-    mongoose.connect(process.env.MONGODB_SRV, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    }).then(console.log("Connected to MONGODB!"))
-});
-
-
 
 client.login(process.env.TOKEN).then(() => {
-  console.log((
-      ` Successfully logged in as: ${client.user.tag} `
-    )
+  console.log(`Successfully Logged in as ${client.user.tag} ✅`)
   );
 });
 
